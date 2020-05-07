@@ -9,4 +9,5 @@
         public int PlaceId { get; internal set; }
         public Locations Place { get; internal set; }
     }
+
 }

@@ -8,7 +8,7 @@ namespace MyCollection
             :base(options)
         {}
 
-        public DbSet<Locations> Locations { get; set; }
+        public DbSet<RepositoryLocations> Locations { get; set; }
         public DbSet<Itens> Itens { get; set; }
         public DbSet<Borrowed> Borrowed { get; set; }
 

@@ -16,7 +16,6 @@
   <ItemGroup>
     <Folder Include="Areas\API\Controllers\" />
     <Folder Include="Areas\API\Models\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
 
