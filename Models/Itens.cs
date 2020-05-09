@@ -1,17 +1,29 @@
-﻿namespace MyCollection
+﻿using Type = MyCollection.Models.Enum.Type;
+
+namespace MyCollection.Models
 {
     public class Itens
     {
-        #region properties
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Type Type  { get; set; }
 
-        public int Id { get; internal set; }
-        public string Name { get; internal set; }
-        public string Description { get; internal set; }
-        public int Type { get; internal set; }
-        public int PlaceId { get; internal set; }
-        public Locations Place { get; internal set; }
-
-        #endregion
+        public string ParseEnumToText(Type type)
+        {
+            var exit = "";
+            switch (type)
+            {
+                case Type.CD:
+                    exit = "CD";
+                    break;
+                case Type.DVD:
+                    exit = "Especialista";
+                    break;
+                case Type.Livro:
+                    exit = "Livro";
+                    break;
+            }
+            return exit;
+        }
     }
-
 }

@@ -1,21 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyCollection.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace MyCollection
+namespace MyCollection.Repository
 {
     public class Repository<T> : IDisposable where T : class
     {
-        protected CollectionContext _context;
+        protected ContextCT _context;
         protected DbSet<T> _dbSet;
-        public Repository(CollectionContext context)
+        public Repository(ContextCT context)
         {
             _context = context;
             _dbSet = context.Set<T>();
         }
-
         public void Dispose()
         {
             _context.Dispose();
@@ -50,7 +51,6 @@ namespace MyCollection
         {
             _context.Set<T>().Add(entity);
         }
-
 
     }
 }

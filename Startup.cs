@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MyCollection.Context;
+using MyCollection.UnitOfWork;
 
 namespace MyCollection
 {
@@ -26,8 +28,9 @@ namespace MyCollection
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CollectionContext>(options =>
+            services.AddDbContext<ContextCT>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IUnitOfWork, UnitOfWork.UnitOfWork>();
             services.AddControllers();
         }
 
@@ -39,7 +42,7 @@ namespace MyCollection
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
