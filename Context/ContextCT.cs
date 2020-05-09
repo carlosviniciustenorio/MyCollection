@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyCollection.Models;
-using MyCollection.Repository;
 
 namespace MyCollection.Context
 {
