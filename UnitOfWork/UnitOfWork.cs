@@ -9,6 +9,7 @@ namespace MyCollection.UnitOfWork
     {
 
         Repository.RepositoryUser userRepository;
+        Repository.RepositoryItens itensRepository;
         private ContextCT contextCt;
 
         public UnitOfWork([FromServices]ContextCT contextMy)
@@ -21,6 +22,14 @@ namespace MyCollection.UnitOfWork
             get
             {
                 return userRepository = userRepository ?? new RepositoryUser(this.contextCt);
+            }
+        }
+
+        public RepositoryItens ItensRepository
+        {
+            get
+            {
+                return itensRepository = itensRepository ?? new RepositoryItens(this.contextCt);
             }
         }
 
