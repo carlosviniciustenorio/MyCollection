@@ -18,7 +18,7 @@ namespace MyCollection.Models
                     exit = "CD";
                     break;
                 case Type.DVD:
-                    exit = "Especialista";
+                    exit = "DVD";
                     break;
                 case Type.Livro:
                     exit = "Livro";
