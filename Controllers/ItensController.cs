@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyCollection.Context;
+using MyCollection.Models;
 using MyCollection.UnitOfWork;
 
 namespace MyCollection.Controllers
@@ -14,9 +11,26 @@ namespace MyCollection.Controllers
     public class ItensController : ControllerBase
     {
         IUnitOfWork unitOfWork;
-        readonly ContextCT _context;
+        
+        public ItensController(IUnitOfWork unitOfWork)
+        {
+            this.unitOfWork = unitOfWork;
+        }
 
+        //api/Itens
         [HttpGet]
+        public IList<Itens> Get()
+        {
+            return this.unitOfWork.ItensRepository.FindAll().OrderByDescending(x => x.Id).ToList();
+        }
+
+        [HttpPost]
+        public ActionResult<Itens> Post([FromBody] Itens value)
+        {
+            this.unitOfWork.ItensRepository.Add(value);
+            this.unitOfWork.Save();
+            return value;
+        }
 
     }
 }

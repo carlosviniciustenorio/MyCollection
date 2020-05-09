@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using MyCollection.Context;
 using MyCollection.Models;
 using MyCollection.UnitOfWork;
 
@@ -12,11 +11,9 @@ namespace MyCollection.Controllers
     public class UserController : ControllerBase
     {
         IUnitOfWork unitOfWork;
-        readonly ContextCT _context;
 
-        public UserController(IUnitOfWork unitOfWork, ContextCT _context)
+        public UserController(IUnitOfWork unitOfWork)
         {
-            this._context = _context;
             this.unitOfWork = unitOfWork;
         }
 
@@ -36,7 +33,7 @@ namespace MyCollection.Controllers
 
         // POST: api/User
         [HttpPost]
-        public ActionResult<User> Post([FromBody]User value)
+        public ActionResult<User> Post([FromBody] User value)
         {
             this.unitOfWork.UserRepository.Add(value);
             this.unitOfWork.Save();
