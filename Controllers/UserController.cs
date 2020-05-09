@@ -67,7 +67,6 @@ namespace MyCollection.Controllers
             this.unitOfWork.Save();
             return userInDb;
         }
-
-
+        
     }
 }

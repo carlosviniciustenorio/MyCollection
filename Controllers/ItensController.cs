@@ -57,9 +57,15 @@ namespace MyCollection.Controllers
             return itensInDb;
         }
 
-
-
-
+        //api/Itens/6
+        [HttpDelete("{id}")]
+        public Itens Delete(int id)
+        {
+            var itemInDb = this.unitOfWork.ItensRepository.FindById(id);
+            this.unitOfWork.ItensRepository.Remove(itemInDb);
+            this.unitOfWork.Save();
+            return itemInDb;
+        }
 
     }
 }
