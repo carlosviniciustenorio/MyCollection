@@ -24,4 +24,4 @@ Para executá-lo, é necessário realizar as seguintes operações:
 
 Fazendo assim, o banco de dados será atualizado com as migrações do projeto.
 
-Após isso, você executa a solução teclando F5.
+Após isso, faça o build do projeto teclando F6 e execute a solução teclando F5.
