@@ -1,3 +1,5 @@
+/*
+
 Este projeto é o desenvolvimento back-end de uma WebAPI para gerenciar coleções de itens(CD's,DVD's e Livros).
 
 Para executá-lo, é necessário realizar as seguintes operações:
@@ -23,3 +25,5 @@ Para executá-lo, é necessário realizar as seguintes operações:
 7- No Console de Gereciador de Pacotes, executar o comando: EntityFrameworkCore\Update-Database
 
 Após isso, faça o build do projeto teclando F6 e execute a solução teclando F5.
+
+*/
