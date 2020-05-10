@@ -9,11 +9,9 @@ Para executá-lo, é necessário realizar as seguintes operações:
 3- Abrir o Console de Gerenciador de Pacotes (Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes)
 
 
-4- Instalar o EntityFramework Core colando no terminal os seguinte comandos:
+4- Instalar o EntityFramework Core colando no terminal o seguinte comando:
 
-   1° Comando: Install-Package Microsoft.EntityFrameworkCore -Version 5.0.0-preview.3.20181.2
- 
-   2° Comando: Install-Package Microsoft.EntityFrameworkCore.Tools -Version 5.0.0-preview.3.20181.2
+   Comando: Install-Package Microsoft.EntityFrameworkCore -Version 5.0.0-preview.3.20181.2
    
 
 5- Criar um Banco de Dados SQL (Ferramentas > Add SQL Server > Local > MSSQLLocalDB)
