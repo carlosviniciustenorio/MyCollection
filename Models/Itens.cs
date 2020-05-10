@@ -9,22 +9,5 @@ namespace MyCollection.Models
         public bool Loan { get; set; }
         public Type Type  { get; set; }
 
-        public string ParseEnumToText(Type type)
-        {
-            var exit = "";
-            switch (type)
-            {
-                case Type.CD:
-                    exit = "CD";
-                    break;
-                case Type.DVD:
-                    exit = "DVD";
-                    break;
-                case Type.Livro:
-                    exit = "Livro";
-                    break;
-            }
-            return exit;
-        }
     }
 }
