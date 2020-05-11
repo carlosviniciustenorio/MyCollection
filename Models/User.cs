@@ -8,6 +8,7 @@
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Endereco { get; set; }
+        public Itens Itens { get; set; }
 
         #endregion
     }
