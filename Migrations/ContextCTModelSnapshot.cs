@@ -95,7 +95,7 @@ namespace MyCollection.Migrations
                         .HasForeignKey("ItensId");
 
                     b.HasOne("MyCollection.Models.User", "User")
-                        .WithMany("Vinculos")
+                        .WithMany("Vinculo")
                         .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618

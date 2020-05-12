@@ -10,7 +10,7 @@ namespace MyCollection.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Endereco { get; set; }
-        public virtual List<Vinculo> Vinculos { get; set; }
+        public virtual List<Vinculo> Vinculo { get; set; }
 
         #endregion
     }

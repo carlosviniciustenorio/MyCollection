@@ -35,7 +35,7 @@ namespace MyCollection.Controllers
         [HttpPost]
         public ActionResult<User> Post([FromBody] User value)
         {
-            value.Vinculos = null;
+            value.Vinculo = null;
             this.unitOfWork.UserRepository.Add(value);
             this.unitOfWork.Save();
             return value;
@@ -51,7 +51,7 @@ namespace MyCollection.Controllers
             userInDb.Phone = value.Phone;
             userInDb.Email = value.Email;
             userInDb.Endereco = value.Endereco;
-            userInDb.Vinculos = null;
+            userInDb.Vinculo = null;
             if(value.Id > 0)
             {
                 this.unitOfWork.UserRepository.Edit(userInDb);

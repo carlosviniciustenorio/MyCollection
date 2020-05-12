@@ -107,7 +107,7 @@ namespace MyCollection.Controllers
             {
                 value.Itens.Loan = false;
                 value.Itens.Vinculo = null;
-                value.User.Vinculos = null;
+                value.User.Vinculo = null;
                 this.unitOfWork.VinculoRepository.Add(value);
                 this.unitOfWork.Save();
                 return Ok();
