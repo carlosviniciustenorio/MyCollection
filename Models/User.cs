@@ -1,4 +1,6 @@
-﻿namespace MyCollection.Models
+﻿using System.Collections.Generic;
+
+namespace MyCollection.Models
 {
     public class User
     {
@@ -8,6 +10,7 @@
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Endereco { get; set; }
+        public virtual List<Vinculo> Vinculos { get; set; }
 
         #endregion
     }

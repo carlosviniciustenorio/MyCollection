@@ -28,13 +28,15 @@ namespace MyCollection.Controllers
         [HttpGet("{id}")]
         public Itens Get(int id)
         {
-            return this.unitOfWork.ItensRepository.FindById(id);
+            return this.unitOfWork.ItensRepository.BuscarComInclud(id);
         }
 
         //api/Itens
         [HttpPost]
         public ActionResult<Itens> Post([FromBody] Itens value)
         {
+            value.Loan = false;
+            value.Vinculo = null;
             this.unitOfWork.ItensRepository.Add(value);
             this.unitOfWork.Save();
             return value;
@@ -46,8 +48,9 @@ namespace MyCollection.Controllers
         {
             var itensInDb = this.unitOfWork.ItensRepository.FindById(id);
             itensInDb.Name = value.Name;
-            itensInDb.Loan = value.Loan;
+            itensInDb.Loan = false;
             itensInDb.Type = value.Type;
+            itensInDb.Vinculo = null;
 
             if(value.Id > 0)
             {
@@ -65,6 +68,52 @@ namespace MyCollection.Controllers
             this.unitOfWork.ItensRepository.Remove(itemInDb);
             this.unitOfWork.Save();
             return itemInDb;
+        }
+
+        //api/Itens/Alugar
+        [HttpPost("Alugar")]
+        public ActionResult<Vinculo> PostAlugar([FromBody] Vinculo value)
+        {
+            var itemInDb = this.unitOfWork.ItensRepository.FindById(value.Itens.Id);
+            value.Itens = itemInDb;
+
+            var userInDb = this.unitOfWork.UserRepository.FindById(value.User.Id);
+            value.User = userInDb;
+            
+            
+            if (value.Itens.Id > 0 && value.Itens.Loan == false && value.User.Id > 0)
+            {
+                itemInDb.Loan = true;
+                this.unitOfWork.VinculoRepository.Add(value);
+                this.unitOfWork.Save();
+                return Ok();
+            }
+
+            return BadRequest();
+
+        }
+
+        //api/Itens/Devolver
+        [HttpPost("Devolver")]
+        public ActionResult<Vinculo> PostDevolver([FromBody] Vinculo value)
+        {
+            var itemInDb = this.unitOfWork.ItensRepository.FindById(value.Itens.Id);
+            value.Itens = itemInDb;
+
+            var userInDb = this.unitOfWork.UserRepository.FindById(value.User.Id);
+            value.User = userInDb;
+
+            if(value.Itens.Id > 0 && value.Itens.Loan == true && value.User.Id > 0)
+            {
+                value.Itens.Loan = false;
+                value.Itens.Vinculo = null;
+                value.User.Vinculos = null;
+                this.unitOfWork.VinculoRepository.Add(value);
+                this.unitOfWork.Save();
+                return Ok();
+            }
+
+            return BadRequest();
         }
 
     }
