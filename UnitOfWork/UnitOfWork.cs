@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyCollection.Context;
 using MyCollection.Repository;
-using System;
 
 namespace MyCollection.UnitOfWork
 {
@@ -10,8 +9,9 @@ namespace MyCollection.UnitOfWork
 
         Repository.RepositoryUser userRepository;
         Repository.RepositoryItens itensRepository;
+        Repository.RepositoryVinculo vinculoRepository;
         private ContextCT contextCt;
-
+        
         public UnitOfWork([FromServices]ContextCT contextMy)
         {
             this.contextCt = contextMy;
@@ -30,6 +30,14 @@ namespace MyCollection.UnitOfWork
             get
             {
                 return itensRepository = itensRepository ?? new RepositoryItens(this.contextCt);
+            }
+        }
+
+        public RepositoryVinculo VinculoRepository
+        {
+            get
+            {
+                return vinculoRepository = vinculoRepository ?? new RepositoryVinculo(this.contextCt);
             }
         }
 

@@ -12,6 +12,7 @@ namespace MyCollection.Context
         #region ContextsClass
         public DbSet<User> User { get; set; }
         public DbSet<Itens> Item { get; set; }
+        public DbSet<Vinculo> Vinculo { get; set; }
 
         #endregion
 

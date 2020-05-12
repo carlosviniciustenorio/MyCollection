@@ -3,9 +3,9 @@ using MyCollection.Models;
 
 namespace MyCollection.Repository
 {
-    public class RepositoryUser : Repository<User>
+    public class RepositoryVinculo : Repository<Vinculo>
     {
-        public RepositoryUser(ContextCT context)
+        public RepositoryVinculo(ContextCT context)
             : base(context)
         {}
 

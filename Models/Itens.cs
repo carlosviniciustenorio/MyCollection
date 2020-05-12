@@ -4,10 +4,13 @@ namespace MyCollection.Models
 {
     public class Itens
     {
+        #region properties
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Loan { get; set; }
         public Type Type  { get; set; }
+
+        #endregion
 
     }
 }
