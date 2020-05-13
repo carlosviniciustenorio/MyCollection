@@ -52,11 +52,13 @@ namespace MyCollection.Controllers
             userInDb.Email = value.Email;
             userInDb.Endereco = value.Endereco;
             userInDb.Vinculo = null;
+
             if(value.Id > 0)
             {
                 this.unitOfWork.UserRepository.Edit(userInDb);
                 this.unitOfWork.Save();
             }
+
             return userInDb;
         }
 

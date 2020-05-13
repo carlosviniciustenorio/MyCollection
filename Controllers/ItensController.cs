@@ -11,7 +11,7 @@ namespace MyCollection.Controllers
     public class ItensController : ControllerBase
     {
         IUnitOfWork unitOfWork;
-        
+
         public ItensController(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
@@ -28,6 +28,13 @@ namespace MyCollection.Controllers
         [HttpGet("{id}")]
         public Itens Get(int id)
         {
+            return this.unitOfWork.ItensRepository.FindById(id);
+        }
+
+        //api/Itens/Alugado/6
+        [HttpGet("Alugado/{id}")]
+        public Itens GetComInclud(int id)
+        {
             return this.unitOfWork.ItensRepository.BuscarComInclud(id);
         }
 
@@ -42,34 +49,6 @@ namespace MyCollection.Controllers
             return value;
         }
 
-        //api/Itens/6
-        [HttpPut("{id}")]
-        public Itens Put(int id, [FromBody] Itens value)
-        {
-            var itensInDb = this.unitOfWork.ItensRepository.FindById(id);
-            itensInDb.Name = value.Name;
-            itensInDb.Loan = false;
-            itensInDb.Type = value.Type;
-            itensInDb.Vinculo = null;
-
-            if(value.Id > 0)
-            {
-                this.unitOfWork.ItensRepository.Add(itensInDb);
-                this.unitOfWork.Save();
-            }
-            return itensInDb;
-        }
-
-        //api/Itens/6
-        [HttpDelete("{id}")]
-        public Itens Delete(int id)
-        {
-            var itemInDb = this.unitOfWork.ItensRepository.FindById(id);
-            this.unitOfWork.ItensRepository.Remove(itemInDb);
-            this.unitOfWork.Save();
-            return itemInDb;
-        }
-
         //api/Itens/Alugar
         [HttpPost("Alugar")]
         public ActionResult<Vinculo> PostAlugar([FromBody] Vinculo value)
@@ -79,8 +58,8 @@ namespace MyCollection.Controllers
 
             var userInDb = this.unitOfWork.UserRepository.FindById(value.User.Id);
             value.User = userInDb;
-            
-            
+
+
             if (value.Itens.Id > 0 && value.Itens.Loan == false && value.User.Id > 0)
             {
                 itemInDb.Loan = true;
@@ -94,7 +73,7 @@ namespace MyCollection.Controllers
         }
 
         //api/Itens/Devolver
-        [HttpPost("Devolver")]
+        [HttpPost("Devolver/{id}")]
         public ActionResult<Vinculo> PostDevolver([FromBody] Vinculo value)
         {
             var itemInDb = this.unitOfWork.ItensRepository.FindById(value.Itens.Id);
@@ -114,6 +93,34 @@ namespace MyCollection.Controllers
             }
 
             return BadRequest();
+        }
+
+        //api/Itens/6
+        [HttpPut("{id}")]
+        public Itens Put(int id, [FromBody] Itens value)
+        {
+            var itensInDb = this.unitOfWork.ItensRepository.FindById(id);
+            itensInDb.Name = value.Name;
+            itensInDb.Loan = false;
+            itensInDb.Type = value.Type;
+            itensInDb.Vinculo = null;
+
+            if (value.Id > 0)
+            {
+                this.unitOfWork.ItensRepository.Add(itensInDb);
+                this.unitOfWork.Save();
+            }
+            return itensInDb;
+        }
+
+        //api/Itens/6
+        [HttpDelete("{id}")]
+        public Itens Delete(int id)
+        {
+            var itemInDb = this.unitOfWork.ItensRepository.FindById(id);
+            this.unitOfWork.ItensRepository.Remove(itemInDb);
+            this.unitOfWork.Save();
+            return itemInDb;
         }
 
     }
