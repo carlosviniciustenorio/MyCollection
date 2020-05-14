@@ -2,7 +2,6 @@
 using MyCollection.Models;
 using System.Data.Entity;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MyCollection.Repository
 {
@@ -11,7 +10,7 @@ namespace MyCollection.Repository
         public RepositoryItens(ContextCT context)
             : base(context)
         {}
-        
+
         public Itens BuscarComInclud(int id)
         {
             return _context.Item.Include(x => x.Vinculo).FirstOrDefault();

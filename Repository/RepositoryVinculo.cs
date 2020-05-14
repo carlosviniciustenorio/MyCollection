@@ -9,6 +9,5 @@ namespace MyCollection.Repository
             : base(context)
         {}
 
-
     }
 }

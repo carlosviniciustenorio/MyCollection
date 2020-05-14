@@ -72,22 +72,24 @@ namespace MyCollection.Controllers
 
         }
 
-        //api/Itens/Devolver
+        //api/Itens/Devolver/6
         [HttpPost("Devolver/{id}")]
-        public ActionResult<Vinculo> PostDevolver([FromBody] Vinculo value)
+        public ActionResult<Vinculo> PostDevolver(int id, [FromBody] Vinculo value)
         {
+            var vinculo = this.unitOfWork.VinculoRepository.FindById(id);
+
             var itemInDb = this.unitOfWork.ItensRepository.FindById(value.Itens.Id);
             value.Itens = itemInDb;
 
             var userInDb = this.unitOfWork.UserRepository.FindById(value.User.Id);
             value.User = userInDb;
 
-            if(value.Itens.Id > 0 && value.Itens.Loan == true && value.User.Id > 0)
+            if (value.Itens.Id > 0 && value.Itens.Loan == true && value.User.Id > 0)
             {
                 value.Itens.Loan = false;
                 value.Itens.Vinculo = null;
                 value.User.Vinculo = null;
-                this.unitOfWork.VinculoRepository.Add(value);
+                this.unitOfWork.VinculoRepository.Remove(vinculo);
                 this.unitOfWork.Save();
                 return Ok();
             }
