@@ -73,7 +73,7 @@ namespace MyCollection.Controllers
         }
 
         //api/Itens/Devolver/6
-        [HttpPut("Devolver/{id}")]
+        [HttpPost("Devolver/{id}")]
         public ActionResult<Vinculo> PostDevolver(int id, [FromBody] Vinculo value)
         {
             var vinculo = this.unitOfWork.VinculoRepository.FindById(id);
