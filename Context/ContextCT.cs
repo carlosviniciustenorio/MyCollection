@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyCollection.Context.Maps;
 using MyCollection.Models;
 
 namespace MyCollection.Context
@@ -9,12 +10,15 @@ namespace MyCollection.Context
             :base(options)
         {}
 
-        #region ContextsClass
         public DbSet<User> User { get; set; }
         public DbSet<Itens> Item { get; set; }
         public DbSet<Vinculo> Vinculo { get; set; }
 
-        #endregion
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfiguration(new UserMap());
+            builder.ApplyConfiguration(new ItensMap());
+        }        
 
     }
 }

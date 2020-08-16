@@ -11,10 +11,5 @@ namespace MyCollection.Repository
             : base(context)
         {}
 
-        public Itens BuscarComInclud(int id)
-        {
-            return _context.Item.Include(x => x.Vinculo).FirstOrDefault();
-        }
-
     }
 }

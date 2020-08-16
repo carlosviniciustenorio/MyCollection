@@ -31,13 +31,6 @@ namespace MyCollection.Controllers
             return this.unitOfWork.ItensRepository.FindById(id);
         }
 
-        //api/Itens/Alugado/6
-        [HttpGet("Alugado/{id}")]
-        public Itens GetComInclud(int id)
-        {
-            return this.unitOfWork.ItensRepository.BuscarComInclud(id);
-        }
-
         //api/Itens
         [HttpPost]
         public ActionResult<Itens> Post([FromBody] Itens value)
