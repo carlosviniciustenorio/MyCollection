@@ -19,6 +19,7 @@ namespace MyCollection.Controllers
 
         // GET: api/User
         [HttpGet]
+        [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 60)]
         public IList<User> Get()
         {
             return this.unitOfWork.UserRepository.FindAll().OrderByDescending(x => x.Id).ToList();
