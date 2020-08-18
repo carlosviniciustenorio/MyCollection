@@ -41,9 +41,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "EntityFramework": {
+            "Microsoft.AspNetCore.ResponseCompression": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
