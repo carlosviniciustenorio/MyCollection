@@ -1,6 +1,5 @@
 ﻿using MyCollection.Context;
 using MyCollection.Models;
-using System.Data.Entity;
 using System.Linq;
 
 namespace MyCollection.Repository
