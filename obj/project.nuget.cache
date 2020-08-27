@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rKrqm4WH+I8KNn4iVl4cN0uElI+D0obCICnSsUVKBM4GS7WLrdSWXQ3WMCXbRzpHNTvAHE928R1Y04BnbmXu5A==",
+  "dgSpecHash": "+rYXB8UiwI+glxKAD+2VWVUnm1YvpoDlV9zeb53Lld8owssgIWXBARkq1SRx8b5x5V2zUs0lxdyjt0XU1W6lGw==",
   "success": true,
   "projectFilePath": "C:\\MyCollection\\MyCollection.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carlos de Cristo\\.nuget\\packages\\flunt\\1.0.5\\flunt.1.0.5.nupkg.sha512",
     "C:\\Users\\Carlos de Cristo\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Carlos de Cristo\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Carlos de Cristo\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",

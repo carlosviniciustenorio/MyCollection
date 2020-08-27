@@ -186,6 +186,3 @@ C:\MyCollection\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\MyCollection\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\MyCollection\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\MyCollection\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\MyCollection\obj\Debug\netcoreapp3.1\MyCollection.csproj.CoreCompileInputs.cache
-C:\MyCollection\obj\Debug\netcoreapp3.1\MyCollection.MvcApplicationPartsAssemblyInfo.cs
-C:\MyCollection\obj\Debug\netcoreapp3.1\MyCollection.MvcApplicationPartsAssemblyInfo.cache
